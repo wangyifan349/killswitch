@@ -3,7 +3,9 @@ Kill-switch 是一种防范意外断开 VPN 连接时的数据泄漏的安全机
 
 在这个仓库中，提供了两个脚本：一个是用于 Ubuntu 的 OpenVPN 脚本，另一个是 Windows 上的批处理格式脚本，帮助kill-switch。
 
-此外，另外补充了一个windows的v2ray防火墙的脚本。
+此外，另外补充了一个windows的代理的防火墙的脚本。
+
+另外注意一点，这并非openvpn和代理软件的脚本，而是防火墙配置的辅助命令行。仅仅是参考，而非实际意义。
 
 免责声明：
 
@@ -18,7 +20,7 @@ What is a Kill-switch?
 
 A Kill-switch is a security mechanism designed to prevent data leakage in the event of an accidental disconnection of a VPN connection. When a VPN connection is interrupted, the Kill-switch immediately disables all network connections to avoid data transmission through the original IP address of the local machine, thus protecting your privacy.
 
-In this repository, there are two scripts available: one for OpenVPN on Ubuntu and another one for Windows in bat format. Additionally, a firewall script for v2ray on Windows is also provided.
+In this repository, there are two scripts available: one for OpenVPN on Ubuntu and another one for Windows in bat format. Additionally, a firewall script for proxy on Windows is also provided.
 
 Disclaimer:
 
