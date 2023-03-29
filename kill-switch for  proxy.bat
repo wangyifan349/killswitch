@@ -20,5 +20,6 @@ netsh advfirewall refresh
 REM 这是注释符号，REM也是注释符号,开启代理并使用代理
 echo y | reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyEnable /t REG_DWORD /d 1
 echo y | reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyServer /t REG_SZ /d http=127.0.0.1:10809;::https=127.0.0.1:10809;ftp=127.0.0.1:10809;socks=127.0.0.1:10808
-
+REM   echo y | reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyEnable /t REG_DWORD /d 0   
+REM  上面这个是关闭代理
 REM 代理软件通常缺少kill-switch功能，这一点非常烦。，加一个防火墙保护一下。
