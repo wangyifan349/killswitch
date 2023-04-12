@@ -25,8 +25,13 @@ netsh advfirewall firewall add rule name="Block ICMPv6" protocol=icmpv6:any,any 
 netsh advfirewall firewall add rule name="Block ICMPv42" protocol=icmpv4:any,any dir=out action=block
 netsh advfirewall firewall add rule name="Block ICMPv62" protocol=icmpv6:any,any dir=out action=block
 
+::这部分用于处理路由问题
+route delete 0.0.0.0 mask 0.0.0.0 192.168.123.1::假设你的路由器网关是192.168.123.1
+::route add   0.0.0.0 mask 0.0.0.0 192.168.123.1::这是恢复方法
+route change 0.0.0.0 mask 0.0.0.0 10.8.8.1 metric 15::这部分改OpenVPN的路由，将OpenVPN的路由降低。
+route change 0.0.0.0 mask 128.0.0.0 10.8.8.1 metric 6::这部分改OpenVPN的路由，将OpenVPN的路由降低。
+
 ::这是注释符号，REM也是注释符号,对xray有用，帮助翻墙软件的而非针对OpenVPN
 ::echo y | reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyEnable /t REG_DWORD /d 1
 ::echo y | reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyServer /t REG_SZ /d http=127.0.0.1:10809;::https=127.0.0.1:10809;ftp=127.0.0.1:10809;socks=127.0.0.1:10808
-::虽然在windows下，不可能保证流量泄露的问题，但是这么做，一定程度的解决了流量泄露的问题。
-::将socket5和http代理转发到TAP/TUN可以提升网络承载能力，但是需要正确配置路由表，clash for windows在这个上面非常好。
+::使用regexp:windows.+等方法来屏蔽不必要的更新等。
