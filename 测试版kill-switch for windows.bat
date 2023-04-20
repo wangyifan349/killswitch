@@ -2,7 +2,7 @@
 REM  这部分用于OpenVPN的kill-switch
 REM  route delete 0.0.0.0 MASK 0.0.0.0 192.168.123.1
 REM  route add 0.0.0.0 MASK 0.0.0.0 192.168.123.1
-
+REM这个版本添加了放行默认ip4网关，禁止ping
 
 REM 获取正在使用的网络连接名称
 for /f "tokens=3 delims=: " %%i in ('netsh interface show interface ^| findstr "Connected"') do (
