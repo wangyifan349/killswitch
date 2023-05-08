@@ -1,5 +1,7 @@
 @echo off
-REM  这部分用于OpenVPN的kill-switch
+REM  这部分用于OpenVPN的kill-switch，而非xray的
+REM  如果你要用的话，把这个和你的xray目录放在一起就可以了。能够拦截很多流量，v2rayN设计的。。。。差一点防火墙的功能，那系统的防火墙帮它补充下。
+REM  就只是能提升一点点点点隐私，一点点而已。
 REM  route delete 0.0.0.0 MASK 0.0.0.0 192.168.123.1
 REM  route add 0.0.0.0 MASK 0.0.0.0 192.168.123.1
 :: 检测管理员权限
