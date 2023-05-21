@@ -1,7 +1,5 @@
 @echo off
-REM  这部分用于OpenVPN的kill-switch，而非xray的
-REM  如果你要用的话，把这个和你的xray目录放在一起就可以了。能够拦截很多流量，v2rayN设计的。。。。差一点防火墙的功能，那系统的防火墙帮它补充下。
-REM  就只是能提升一点点点点隐私，一点点而已。
+REM  这部分用于OpenVPN的kill-switch
 REM  route delete 0.0.0.0 MASK 0.0.0.0 192.168.123.1
 REM  route add 0.0.0.0 MASK 0.0.0.0 192.168.123.1
 :: 检测管理员权限
@@ -16,6 +14,9 @@ ipconfig/flushdns
 netsh advfirewall reset
 netsh advfirewall set allprofiles state on
 netsh advfirewall set allprofiles firewallpolicy blockinbound,blockoutbound
+netsh interface ipv4 reset
+REM 上面这个是恢复默认的ipv4路由表，防止路由表有问题。
+
 REM 极端网络情况下的 kill-switch
 REM netsh advfirewall reset
 netsh advfirewall firewall add rule name="Allow local IP range - Inbound" dir=in action=allow protocol=any localip=any remoteip=192.168.123.1-192.168.123.255
@@ -50,8 +51,8 @@ netsh advfirewall firewall add rule name="dangeous  in  tcp" dir=in action=block
 netsh advfirewall firewall add rule name="dangeous  in  udp" dir=in action=block protocol=udp localport=135-139,445,1433,3306,3389,53
 netsh advfirewall firewall add rule name="dangerous  out  tcp" dir=out action=block protocol=tcp localport=135-139,445,1433,3306,3389,53
 netsh advfirewall firewall add rule name="dangers udp out" dir=out action=block protocol=udp localport=135-139,445,1433,3306,3389,53
-netsh advfirewall firewall add rule name="Allow only from specific IP - Inbound" dir=in action=allow protocol=any localip=any remoteip=104.21.75.19
-netsh advfirewall firewall add rule name="Allow only to specific IP - Outbound" dir=out action=allow protocol=any localip=any remoteip=104.21.75.19
+netsh advfirewall firewall add rule name="Allow only from specific IP - Inbound" dir=in action=allow protocol=any localip=any remoteip=172.67.166.125
+netsh advfirewall firewall add rule name="Allow only to specific IP - Outbound" dir=out action=allow protocol=any localip=any remoteip=172.67.166.125
 netsh advfirewall firewall add rule name="Block all other traffic - Outbound" dir=out action=block protocol=any localip=any remoteip=0.0.0.0-104.21.75.18
 netsh advfirewall firewall add rule name="Block all other traffic - Outbound" dir=out action=block protocol=any localip=any remoteip=104.21.75.20-255.255.255.255
 netsh advfirewall firewall add rule name="Block all other traffic - Inbound" dir=in action=block protocol=any localip=any remoteip=0.0.0.0-104.21.75.18
