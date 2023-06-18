@@ -1,0 +1,63 @@
+{//某种程度的屏蔽一些不必要的流量，节省VPS带宽网络提升速度
+"type": "field",
+"inboundTag": [],
+"outboundTag": "屏蔽",
+"domain": [
+"mi.com", // 小米公司的官方网站
+"xiaomi.com", // 小米公司的官方域名
+"miui.com", // 小米的移动操作系统 MIUI 的官方网站
+"mi-store.com", // 小米的官方在线商店
+"mi-community.com", // 小米社区，用于用户交流和讨论
+"miui.net", // MIUI 官方网站的备用域名
+"en.miui.com", // MIUI 官方英文网站
+"global.miui.com", // MIUI 官方全球网站
+"xiaomi.eu", // 小米的欧洲社区网站
+"miuiandroid.com", // MIUI 的非官方社区网站
+"miuipro.ru", // MIUI 的俄罗斯社区网站
+"xiaomifirmware.com"// 提供小米设备固件和刷机资源的网站
+"reco.mi.com", // 小米推荐系统的域名，个性化推荐和内容推荐
+"mibrain.mi.com", // 小米智能推荐引擎的域名，提供个性化推荐和智能推荐服务
+"mifitness.mi.com", // 小米健康与运动领域的域名，与个人健康和运动相关
+"mihome.mi.com", // 小米智能家居系统的域名，与智能家居产品和个性化场景推荐相关
+"regexp:xiaomi.+",
+"regexp:miui.+",
+"miuious.com", // 小米 MIUI 系统相关
+"mifit.com", // 小米智能健身产品和应用程序相关
+"miwifiapp.com", // 小米路由器应用程序相关
+"mi-globe.com", //小米社区和资源分享相关
+"mifile.cn", // 小米产品和资源相关
+"regexp:MIUI.+",//广泛的屏蔽
+"regexp:android.+"，//广泛对安卓进行屏蔽
+"geosite:win-update",//Windows 操作系统使用的系统升级域名
+"geosite:win-spy",//Windows 操作系统使用的隐私跟踪域名
+"geosite:win-extra",//Windows 操作系统附加的隐私跟踪域名//需要去找这样的加强规则哦
+"geosite:category-porn",//拦截色情网站
+"geosite:category-ads-all",//拦截色情和广告网站的域名
+"google-analytics.com",// Google Analytics 是谷歌提供的网络分析服务，用于跟踪和报告网站的访问数据，提供统计和分析功能。
+"watson.telemetry.microsoft.com",//用于Windows遥测数据的域名。
+"adservice.google.com",// Google广告服务的域名，可能与Windows个性化广告相关。
+"settings-win.data.microsoft.com",
+"personalization.settings-win.data.microsoft.com"//用于Windows个性化设置的域名。
+"regexp:mozilla.+",
+"regexp:firefox.+",//广泛的对火狐域名进行屏蔽，避免火狐浏览器遥感泄露隐私
+"regexp:edge.+",//对EDGE的流量也屏蔽掉，你自己设置安全dns为https://1.1.1.1/dns-query去。
+    "forefrontdl.microsoft.com",//windows update domain----->
+    "ntservicepack.microsoft.com",
+    "statsfe2.ws.microsoft.com",
+    "update.microsoft",
+    "update.microsoft.com",
+    "update.microsoft.com.nsatc.net",
+    "windowsupdate.com",
+    "windowsupdate.microsoft.com",
+    "windowsupdate.nsatc.net",
+    "wustat.windows.com",//windows update domain----->
+    //"regexp:windows.+",//直接对Windows域名屏蔽，可以这么干，如果你用了微软的云服务，还是不建议屏蔽微软的东西。微软的域名之间会来回跳转，一个打不开，你就打不开了。
+    	"fabric.io", // Fabric 是一个移动应用开发平台，提供应用分析、崩溃报告等功能
+"ad.doubleclick.net", // DoubleClick 是谷歌的广告平台，用于投放和管理在线广告
+"graph.facebook.com", // Facebook Graph API 是 Facebook 提供的开发接口，用于与 Facebook 平台的数据交互
+"androidads21st.adcolony.com", // AdColony 是一家移动广告公司，提供广告投放服务
+"androidads23.adcolony.com" // AdColony 是一家移动广告公司，提供广告投放服务
+],
+        "enabled": true
+},
+//域名收集是一件很麻烦的事情，这里只是我自己用的屏蔽规则，并不完整，但是某种程度的减弱小米和火狐的遥感还是可以的。
