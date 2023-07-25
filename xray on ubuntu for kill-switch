@@ -33,6 +33,7 @@ ufw allow from any  to 172.67.166.125    #放行你的VPS ip,这是cloudflare的
 echo "设置加密的DNS查询，避免DNS污染"
 
 sudo echo -e "[Resolve]\nDNS=1.1.1.1\nDNSOverTLS=yes">/etc/systemd/resolved.conf
-
+sudo ufw enable
+sudo ufw reload
 systemctl restart systemd-resolved.service
 systemctl restart systemd-resolved
