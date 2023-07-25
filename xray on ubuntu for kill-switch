@@ -7,6 +7,16 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 sudo apt install ufw -y
+
+sudo chmod 644 /etc/ufw/ufw.conf
+sudo chmod 644 /etc/ufw/applications.d
+sudo chmod 644 /etc/ufw/user.rules
+sudo chmod 644 /etc/ufw/before.rules
+sudo chmod 644 /etc/ufw/after.rules
+sudo chmod 644 /etc/ufw/user6.rules
+sudo chmod 644 /etc/ufw/before6.rules
+sudo chmod 644 /etc/ufw/after6.rules
+
 sudo ufw reset
 sudo ufw disable 
 # Set the default UFW rules to deny incoming and outgoing connections
