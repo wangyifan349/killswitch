@@ -1,19 +1,5 @@
 #!/bin/bash
 
-
-
-#这个脚本没有写完请不要用
-
-
-
-
-
-
-
-
-
-
-#
 echo "这是一个用于使用在Ubuntu下，利用xray翻墙后，实现kill-switch的脚本和方法，参考了很多博客和教程编写，但仍然可能有漏洞和疏忽的地方"
 sudo -v
 if [ $? -ne 0 ]; then
@@ -36,8 +22,8 @@ sudo ufw allow 1194/udp
 ufw allow from 1.1.1.1 to any port 853 proto tcp
 #allow  dns  over tls
 ufw allow from 172.67.166.125 to any
-ufw allow from 172.67.166.125 to any#放行你的VPS ip,这是cloudflare的ip地址，这里举个例子而以
-echo "设置加密的DNS查询，避免DNS污染"
+ufw allow from any  to 172.67.166.125#this is your openvpn ip address
+echo "set dns over tls"
 
 sudo echo -e "[Resolve]\nDNS=1.1.1.1\nDNSOverTLS=yes">/etc/systemd/resolved.conf
 
