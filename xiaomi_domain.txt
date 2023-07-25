@@ -3,6 +3,9 @@
 "inboundTag": [],
 "outboundTag": "屏蔽",
 "domain": [
+"regexp:.*xiaomi.*",
+"regexp:.*MIUI.*",
+"regexp:.*redmi.*",//广泛的匹配方法干掉小米一堆域名
 "mi.com", // 小米公司的官方网站
 "xiaomi.com", // 小米公司的官方域名
 "miui.com", // 小米的移动操作系统 MIUI 的官方网站
@@ -19,15 +22,14 @@
 "mibrain.mi.com", // 小米智能推荐引擎的域名，提供个性化推荐和智能推荐服务
 "mifitness.mi.com", // 小米健康与运动领域的域名，与个人健康和运动相关
 "mihome.mi.com", // 小米智能家居系统的域名，与智能家居产品和个性化场景推荐相关
-"regexp:xiaomi.+",
-"regexp:miui.+",
+"regexp:.*miui.*",
 "miuious.com", // 小米 MIUI 系统相关
 "mifit.com", // 小米智能健身产品和应用程序相关
 "miwifiapp.com", // 小米路由器应用程序相关
 "mi-globe.com", //小米社区和资源分享相关
 "mifile.cn", // 小米产品和资源相关
 "regexp:MIUI.+",//广泛的屏蔽
-"regexp:android.+"，//广泛对安卓进行屏蔽
+"regexp:.*android.*"，//广泛对安卓进行屏蔽
 "geosite:win-update",//Windows 操作系统使用的系统升级域名
 "geosite:win-spy",//Windows 操作系统使用的隐私跟踪域名
 "geosite:win-extra",//Windows 操作系统附加的隐私跟踪域名//需要去找这样的加强规则哦
@@ -56,7 +58,9 @@
 "ad.doubleclick.net", // DoubleClick 是谷歌的广告平台，用于投放和管理在线广告
 "graph.facebook.com", // Facebook Graph API 是 Facebook 提供的开发接口，用于与 Facebook 平台的数据交互
 "androidads21st.adcolony.com", // AdColony 是一家移动广告公司，提供广告投放服务
-"androidads23.adcolony.com" // AdColony 是一家移动广告公司，提供广告投放服务
+"androidads23.adcolony.com", // AdColony 是一家移动广告公司，提供广告投放服务
+"geosite:category-porn",
+"geosite:category-ads-all"//拦截色情和广告网站的域名
 ],
         "enabled": true
 },
